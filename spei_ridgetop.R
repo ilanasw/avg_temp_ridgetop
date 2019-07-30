@@ -1,5 +1,5 @@
 #read in data
-meanT <- read.csv("/Users/Ilana/Desktop/temp_precip.csv", header=TRUE, sep = ',', stringsAsFactors = FALSE)
+meanT <- read.csv("/Users/Ilana/Desktop/Spreadsheets/temp_precip.csv", header=TRUE, sep = ',', stringsAsFactors = FALSE)
 
 #re-order data set
 meanT1 <- meanT[order(meanT$Year),]
@@ -25,19 +25,14 @@ plot(spei33)
 plot(spei(ts(meanT1$Precip - meanT1$PET,freq=12,start=c(1995,9)),scale = 3),end=c(2019,7))
 
 plot(spei(ts(meanT1$Precip-meanT1$PET,freq=12,start=c(1995,9)),3,
-          ref.start=c(1995,9), ref.end=c(2019,7)))
-
-plot(spei(ts(meanT1$Precip - meanT1$PET,freq=12,start=c(1995,9)),scale = 3, ref.start=c(1995,9), ref.end=c(2019,7)))
-
+          ref.start=c(1995,9), ref.end=c(2019,7)),main='SPEI, Ridgetop')
 
 #plot spi
 plot(spi(ts(meanT1$Precip,freq=12,start=c(1995,9)),3,
-          ref.start=c(1995,9), ref.end=c(2019,7)),main='SPI')
+          ref.start=c(1995,9), ref.end=c(2019,7)),main='SPI, Ridgetop')
 
 
 #plotting
 #plot.spei(spei3, main='SPEI3')
 #plot(Year,spei3)
-
-
 
